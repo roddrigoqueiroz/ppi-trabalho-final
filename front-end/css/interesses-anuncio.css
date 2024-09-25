@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #ffffff;
+}
+
+.header {
+    background-color: #ff4136;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.header h1 {
+    font-size: 3rem;
+    color: #ffffff;
+}
+
+.header nav a {
+    margin: 0 10px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.header nav a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    color: #ff4136;
+}
+
+.container h2 {
+    font-size: 2.5rem;
+    color: #1e90ff;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.interesses-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.interesse {
+    background-color: #f4f4f4;
+    color: #ff4136;
+    border: 2px solid #1e90ff;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 0.8rem 1.6rem rgba(0, 0, 0, 0.2);
+}
+
+.interesse p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.interesse strong {
+    color: #1e90ff;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #1e90ff;
+    color: #ffffff;
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .header h1 {
+        font-size: 2.5rem;
+    }
+
+    .container h2 {
+        font-size: 2rem;
+    }
+
+    .interesse p {
+        font-size: 1.1rem;
+    }
+}

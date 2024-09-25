@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #ffffff;
+}
+
+.header {
+    background-color: #ff4136;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.header h1 {
+    font-size: 3em;
+    color: #ffffff;
+}
+
+.header nav a {
+    margin: 0 10px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.header nav a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    flex: 1;
+}
+
+.cards-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.card-info h3 {
+    margin-top: 10px;
+    font-size: 1.5em;
+    color: #ff4136;
+}
+
+.card-info p {
+    margin-top: 5px;
+    color: #ff4136;
+    font-size: 1.2em;
+}
+
+.card-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 15px;
+    gap: 10px;
+}
+
+.card-actions .btn {
+    background-color: #1e90ff;
+    color: #ffffff;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    flex: 1 1 30%;
+    text-align: center;
+}
+
+.card-actions .btn:hover {
+    background-color: #ff4136;
+    color: white;
+}
+
+.btn-delete {
+    background-color: #ff4136;
+    color: #ffffff;
+}
+
+.btn-delete:hover {
+    background-color: #C0392B;
+    color: #ffffff;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #1e90ff;
+    color: #ffffff;
+    position: relative;
+}
