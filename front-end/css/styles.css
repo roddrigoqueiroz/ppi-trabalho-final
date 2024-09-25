@@ -1,3 +1,10 @@
+:root {
+    --primary: #FC1130;
+    --secondary: #0078AA;
+    --secondary-dark: #010E2E;
+    --white-100: #FBFDFC;
+  }
+
 * {
     margin: 0;
     padding: 0;
@@ -5,15 +12,26 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: Roboto, sans-serif;
     background-color: #f4f4f4;
 }
 
-.header {
-    background-color: #F40B47;
-    color: #FBFDFC;
+header {
+    background-color: var(--primary);
+    color: var(--white-100);
     text-align: center;
     padding: 1em;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: var(--secondary);
+    color: var(--white-100);
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
 }
 
 .logo {
@@ -45,16 +63,6 @@ body {
     margin-top: 5px;
     border-radius: 5px;
     border: 1px solid #ccc;
-}
-
-.search-btn, .submit-btn {
-    padding: 10px 20px;
-    background-color: #007BFF;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
 }
 
 .search-btn:hover, .submit-btn:hover {
@@ -89,9 +97,8 @@ body {
 footer {
     text-align: center;
     padding: 20px;
-    background-color: #333;
-    color: #fff;
-    position: fixed;
+    background-color: var(--secondary-dark);
+    color: var(--white-100);
     width: 100%;
     bottom: 0;
 }
