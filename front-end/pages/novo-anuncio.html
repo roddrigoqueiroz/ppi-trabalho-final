@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClickCar - Anunciar Veiculo</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/cadastro.css">
+</head>
+<body>
+    <header>
+        <div class="brand">
+            <img src="../img/clickcar-logo.jpeg" alt="Logo" class="logo">
+            <h1>ClickCar</h1>
+        </div>
+        <div class="links">
+            <a href="./index.html">Home</a>
+
+            <a href="./novo-anuncio.html">Anunciar Veiculo</a>
+            <a href="./interesses-anuncio.html">Meus Anuncios</a>
+
+            <a href="./cadastro.html">Cadastre-se</a>
+            <a href="./login.html">Login</a>
+            <a href="">Logoff</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="form-container">
+            <h2>Anunciar Veiculo</h2>
+            <form id="interesse-form">
+                <div class="form-group">
+                    <label for="marca">Marca:</label>
+                    <input type="text" id="marca" class="input-field" placeholder="Digite a marca">
+                </div>
+                <div class="form-group">
+                    <label for="modelo">Modelo:</label>
+                    <input type="text" id="modelo" class="input-field" placeholder="Digite o modelo">
+                </div>
+                <div class="form-group">
+                    <label for="ano">Ano de Fabricacao:</label>
+                    <input type="text" id="ano" class="input-field" placeholder="Digite o ano de fabricacao"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="cor">Cor:</label>
+                    <input type="text" id="cor" class="input-field" placeholder="Digite a cor"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="km">Quilometragem:</label>
+                    <input type="text" id="km" class="input-field" placeholder="Digite a quilometragem"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="descricao">Descricao:</label>
+                    <textarea id="descricao" class="input-field" placeholder="Digite a descricao"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="valor">Valor:</label>
+                    <input type="text" id="valor" class="input-field" placeholder="Digite o valor"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="estado">Estado:</label>
+                    <input type="text" id="estado" class="input-field" placeholder="Digite o estado"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="cidade">Cidade:</label>
+                    <input type="text" id="cidade" class="input-field" placeholder="Digite a cidade"></textarea>
+                </div>
+    
+    
+                <div class="form-group">
+                    <label for="fotos">fotos:</label>
+                    <input type="text" id="fotos" class="input-field" placeholder="fotos"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Enviar Interesse</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 ClickCar - Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="../js/scripts.js"></script>
+</body>
+</html>
