@@ -48,9 +48,9 @@ document.addEventListener('DOMContentLoaded', function () {
     senhaInput.addEventListener('input', function () {
         const senha = this.value;
         if (!validarSenha(senha)) {
-            mostrarErro(this, 'A senha deve ter pelo menos 8 caracteres.');
+            mostrarErroSenha(this, 'A senha deve ter pelo menos 8 caracteres.');
         } else {
-            removerErro(this);
+            removeErroSenha(this);
         }
     });
 });
@@ -89,6 +89,18 @@ function mostrarErro(input, mensagem) {
         input.parentNode.insertBefore(erro, input.nextSibling);
     }
     erro.textContent = mensagem;
+}
+
+function mostrarErroSenha(input, mensagem) {
+    let erro = input.parentNode.nextElementSibling;
+    erro.textContent = mensagem;
+}
+
+function removeErroSenha(input) {
+    let erro = input.parentNode.querySelector('.erro');
+    if (erro && erro.classList.contains('erro')) {
+        erro.remove();
+    } 
 }
 
 function removerErro(input) {
