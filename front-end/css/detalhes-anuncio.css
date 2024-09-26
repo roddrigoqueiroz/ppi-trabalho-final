@@ -15,29 +15,6 @@ body {
     line-height: 1.6;
 }
 
-.header {
-    background-color: #ff4136;
-    color: white;
-    text-align: center;
-    padding: 2rem 0;
-}
-
-.header h1 {
-    font-size: 3rem;
-    color: #ffffff;
-}
-
-.header nav a {
-    margin: 0 1rem;
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.header nav a:hover {
-    text-decoration: underline;
-}
-
 .container {
     max-width: 1200px;
     margin: 2rem auto;
@@ -90,21 +67,9 @@ body {
     color: #1e90ff;
 }
 
-footer {
-    text-align: center;
-    padding: 2rem;
-    background-color: #1e90ff;
-    color: #ffffff;
-    position: relative;
-}
-
 @media (max-width: 768px) {
     .container {
         padding: 1rem;
-    }
-
-    .header h1 {
-        font-size: 2rem;
     }
 
     .anuncio-detalhes {
