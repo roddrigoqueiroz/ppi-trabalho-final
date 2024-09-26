@@ -19,13 +19,13 @@ body {
 
 header {
     display: flex;
-    justify-content: space-between; /* Espaço entre as duas divs */
+    justify-content: space-between;
     align-items: center;
 
     background-color: var(--primary);
     color: var(--white-100);
     text-align: center;
-    padding: 1em;
+    padding: 30px 5%;
 }
 
 button {
@@ -36,7 +36,10 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 10px;
+}
+
+h2 {
+    margin-bottom: 10px;
 }
 
 .logo {
@@ -101,13 +104,6 @@ label {
     height: auto;
     margin: 0 auto;
     border-radius: 100%;
-}
-
-.form-group {
-    display: flex;
-    gap: 5px;
-    align-items: center;
-    margin-right: 20px;
 }
 
 .links {
