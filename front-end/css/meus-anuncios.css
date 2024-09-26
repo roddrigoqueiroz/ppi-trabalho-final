@@ -13,29 +13,6 @@ body {
     color: #ffffff;
 }
 
-.header {
-    background-color: #ff4136;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-}
-
-.header h1 {
-    font-size: 3em;
-    color: #ffffff;
-}
-
-.header nav a {
-    margin: 0 10px;
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.header nav a:hover {
-    text-decoration: underline;
-}
-
 .container {
     max-width: 1200px;
     margin: 20px auto;
@@ -116,12 +93,4 @@ body {
 .btn-delete:hover {
     background-color: #C0392B;
     color: #ffffff;
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #1e90ff;
-    color: #ffffff;
-    position: relative;
 }
