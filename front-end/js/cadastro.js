@@ -58,17 +58,30 @@ document.addEventListener('DOMContentLoaded', function () {
 // Funções de validação
 function validarCPF(cpf) {
     cpf = cpf.replace(/\D/g, '');
-    if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) return false;
+    if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf))
+        return false;
+    
     let soma = 0, resto;
-    for (let i = 1; i <= 9; i++) soma += parseInt(cpf.substring(i-1, i)) * (11 - i);
+    for (let i = 1; i <= 9; i++)
+        soma += parseInt(cpf.substring(i-1, i)) * (11 - i);
     resto = (soma * 10) % 11;
-    if (resto === 10 || resto === 11) resto = 0;
-    if (resto !== parseInt(cpf.substring(9, 10))) return false;
+
+    if (resto === 10 || resto === 11)
+        resto = 0;
+    
+    if (resto !== parseInt(cpf.substring(9, 10)))
+        return false;
+
     soma = 0;
-    for (let i = 1; i <= 10; i++) soma += parseInt(cpf.substring(i-1, i)) * (12 - i);
+    for (let i = 1; i <= 10; i++) 
+        soma += parseInt(cpf.substring(i-1, i)) * (12 - i);
     resto = (soma * 10) % 11;
-    if (resto === 10 || resto === 11) resto = 0;
-    if (resto !== parseInt(cpf.substring(10, 11))) return false;
+    
+    if (resto === 10 || resto === 11)
+        resto = 0;
+    
+    if (resto !== parseInt(cpf.substring(10, 11))) 
+        return false;
     return true;
 }
 
@@ -97,7 +110,7 @@ function mostrarErroSenha(input, mensagem) {
 }
 
 function removeErroSenha(input) {
-    let erro = input.parentNode.querySelector('.erro');
+    let erro = input.parentNode.nextElementSibling;
     if (erro && erro.classList.contains('erro')) {
         erro.remove();
     } 
