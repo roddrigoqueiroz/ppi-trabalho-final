@@ -30,7 +30,7 @@ try {
 
   $pdo->commit();
 
-  header("location: home.php");
+  header("location: ../../front-end/pages/meus-anuncios.html");
   exit();
 } 
 catch (Exception $e) {
