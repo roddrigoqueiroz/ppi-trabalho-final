@@ -1,20 +1,11 @@
 <?php
 
-require_once "../MySQL/conexaoMysql.php";
-require_once "../Login/autenticacao.php";
+require_once __DIR__ . "/../database/conexao-mysql.php";
+require_once "autenticacao.php";
 session_start();
 
-class LoginResponse
-{
-  public $success;
-  public $redirectTo;
-
-  function __construct($success, $redirectTo)
-  {
-    $this->success = $success;
-    $this->redirectTo = $redirectTo;
-  }
-}
+$request = file_get_contents('php://input');
+$_POST = json_decode($request, true);
 
 $email = $_POST['email'] ?? '';
 $senha = $_POST['senha'] ?? '';
@@ -33,12 +24,11 @@ if ($senhaHash = checkPassword($pdo, $email, $senha)) {
   // de login em outros scripts PHP
   // TODO RODRIGO: ver o que eu preciso armazenar aqui
   $_SESSION['emailUsuario'] = $email;
-  $_SESSION['loginString'] = hash('sha512', $senhaHash . $_SERVER['HTTP_USER_AGENT']);  
   // TODO: arrumar a rota de redirect
-  $response = new LoginResponse(true, '../acessoRestrito/home.php');
+  header('Location: ../../front-end/pages/meus-anuncios.html');
 }
 else
-  $response = new LoginResponse(false, ''); 
+  header('location: ');
 
 header('Content-Type: application/json; charset=utf-8');
 echo json_encode($response);
