@@ -44,7 +44,7 @@ try {
 
   $pdo->commit();
 
-  echo json_encode(new Response(true, '../../front-end/pages/meus-anuncions.html'));
+  echo json_encode(new Response(true, '/front-end/pages/meus-anuncios.html'));
   exit();
 } 
 catch (Exception $e) {

@@ -140,9 +140,9 @@ async function cadastrar(event) {
   const data = await response.json();
 
   if (data.success) {
-    window.location.assign(response.redirect);
+    window.location.assign(data.redirect);
   } else {
-    console.error(response.message);
+    console.error(data.message);
   }
 }
 
