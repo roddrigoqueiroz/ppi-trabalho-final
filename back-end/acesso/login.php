@@ -2,6 +2,19 @@
 
 require_once __DIR__ . "/../database/conexao-mysql.php";
 require_once "autenticacao.php";
+
+class Response {
+  public $success;
+  public $redirect;
+  public $message;
+
+  public function __construct($success, $redirect, $message = '') {
+    $this->success = $success;
+    $this->redirect = $redirect;
+    $this->message = $message;
+  }
+}
+
 session_start();
 
 $request = file_get_contents('php://input');
@@ -25,11 +38,12 @@ if ($senhaHash = checkPassword($pdo, $email, $senha)) {
   // TODO RODRIGO: ver o que eu preciso armazenar aqui
   $_SESSION['emailUsuario'] = $email;
   // TODO: arrumar a rota de redirect
-  header('Location: ../../front-end/pages/meus-anuncios.html');
+  header('Content-Type: application/json; charset=utf-8');
+  echo json_encode(new Response(true, '/front-end/pages/meus-anuncios.html'));
 }
-else
-  header('location: ');
+else {
+  header('Content-Type: application/json; charset=utf-8');
+  echo json_encode(new Response(false, '', 'Email ou senha inválidos'));
+}
 
-header('Content-Type: application/json; charset=utf-8');
-echo json_encode($response);
 exit();
