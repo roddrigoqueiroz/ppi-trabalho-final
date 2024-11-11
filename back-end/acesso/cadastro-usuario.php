@@ -2,6 +2,19 @@
 // Usei usuário como sendo sinônimo de anunciante, que é o usuário que precisará estar logado
 
 require_once __DIR__ . "/../database/conexao-mysql.php";
+
+class Response {
+  public $success;
+  public $redirect;
+  public $message;
+
+  public function __construct($success, $redirect, $message = '') {
+    $this->success = $success;
+    $this->redirect = $redirect;
+    $this->message = $message;
+  }
+}
+
 $pdo = mysqlConnect();
 
 $request = file_get_contents('php://input');
@@ -24,19 +37,20 @@ $cadastraUsuario = <<<SQL
 try {
   $pdo->beginTransaction();
 
+  $cpf = preg_replace('/[^0-9]/', '', $cpf); // Remove caracteres não numéricos
+
   $stmt1 = $pdo->prepare($cadastraUsuario);
-  print "Nome: $nome, CPF: $cpf, Email: $email, Senha: $hashSenha, Telefone: $telefone";
   $stmt1->execute([$nome, $cpf, $email, $hashSenha, $telefone]);
 
   $pdo->commit();
 
-  header("location: ../../front-end/pages/meus-anuncios.html");
+  echo json_encode(new Response(true, '../../front-end/pages/meus-anuncions.html'));
   exit();
 } 
 catch (Exception $e) {
   $pdo->rollBack();
   if ($e->errorInfo[1] === 1062)
-    exit('Dados duplicados: ' . $e->getMessage());
+    echo json_encode(new Response(false, '', 'Dados já cadastrados'));
   else
-    exit('Falha ao cadastrar os dados: ' . $e->getMessage());
+  echo json_encode(new Response(false, '', 'Erro ao cadastrar usuário'));
 }

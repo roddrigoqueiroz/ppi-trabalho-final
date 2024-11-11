@@ -122,3 +122,31 @@ function removerErro(input) {
         erro.remove();
     }
 }
+
+async function cadastrar(event) {
+  event.preventDefault();
+
+  // cria um objeto com todos os dados do formulário
+  const formData = new FormData(event.target);
+  const json = {};
+  for (var [key, value] of formData.entries()) {
+    json[key] = value;
+  }
+  const response = await fetch('../../back-end/acesso/cadastro-usuario.php', {
+      method: 'POST',
+      body: JSON.stringify(json)
+  });
+
+  const data = await response.json();
+
+  if (data.success) {
+    window.location.href = response.redirect;
+  } else {
+    console.error(response.message);
+  }
+}
+
+window.onload = () => {
+  const form = document.getElementById('cadastro-form');
+  form.addEventListener('submit', event => cadastrar(event));
+}
