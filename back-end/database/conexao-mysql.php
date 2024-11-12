@@ -2,10 +2,10 @@
 
 function mysqlConnect()
 {
-  $db_host = "sql313.infinityfree.com";
-  $db_username = "if0_37661396";
-  $db_password = "rCgDExYne4Ty";
-  $db_name = "if0_37661396_db_trabalho_final";
+  $db_host = "localhost";
+  $db_username = "rodrigo";
+  $db_password = "logarNoMysql";
+  $db_name = "TRABALHO_FINAL_PPI";
 
   $conn = "mysql:host=$db_host;dbname=$db_name;charset=utf8mb4";
 

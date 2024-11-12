@@ -1,14 +1,20 @@
-// document.getElementById('login-form').addEventListener('submit', function(event) {
-//     event.preventDefault();
-//     alert('Login simulado');
-// });
+document.addEventListener('DOMContentLoaded', function () {
+    const logoffLink = document.querySelector('.nav-login a[href=""]');
 
-// document.getElementById('cadastro-form').addEventListener('submit', function(event) {
-//     event.preventDefault();
-//     alert('Cadastro realizado com sucesso!');
-// });
+    logoffLink.addEventListener('click', async function(event) {
+        event.preventDefault();
+        
+        const response = await fetch('../../back-end/acesso/logout.php');
 
-// document.getElementById('interesse-form').addEventListener('submit', function(event) {
-//     event.preventDefault();
-//     alert('Interesse registrado com sucesso!');
-// });
+        if (!response.ok)
+            throw new Error("Falha inesperada: " + response.statusText);
+
+        const data = await response.json();
+
+        if (data.redirect && data.success) {
+            alert("Deslogado com sucesso!")
+            window.location.assign(data.redirect);
+            return;
+        }
+    });
+});
