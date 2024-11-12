@@ -2,18 +2,7 @@
 // Usei usuário como sendo sinônimo de anunciante, que é o usuário que precisará estar logado
 
 require_once __DIR__ . "/../database/conexao-mysql.php";
-
-class Response {
-  public $success;
-  public $redirect;
-  public $message;
-
-  public function __construct($success, $redirect, $message = '') {
-    $this->success = $success;
-    $this->redirect = $redirect;
-    $this->message = $message;
-  }
-}
+require_once __DIR__ . "/../classes/redirect-response.php";
 
 $pdo = mysqlConnect();
 
@@ -44,7 +33,7 @@ try {
 
   $pdo->commit();
 
-  echo json_encode(new Response(true, '/front-end/pages/meus-anuncios.html'));
+  echo json_encode(new Response(true, '/front-end/pages/login.html'));
   exit();
 } 
 catch (Exception $e) {

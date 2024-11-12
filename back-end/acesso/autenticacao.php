@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__ . "/../classes/redirect-response.php";
+
 function checkPassword($pdo, $email, $senha)
 {
   $sql = <<<SQL
@@ -30,7 +32,7 @@ function checkLogged($pdo)
 {
   // Verifica se as variáveis de sessão criadas
   // no momento do login estão definidas
-  if (!isset($_SESSION['emailUsuario'], $_SESSION['loginString']))
+  if (!isset($_SESSION['emailUsuario'], $_SESSION['idUsuario'], $_SESSION['loginString']))
     return false;
 
   $email = $_SESSION['emailUsuario'];
@@ -66,7 +68,8 @@ function checkLogged($pdo)
 function exitIfNotLogged($pdo)
 {
   if (!checkLogged($pdo)) {
-    header("Location: ../index.html");
+    header('Content-Type: application/json; charset=utf-8');
+    echo json_encode(new Response(false, '/front-end/pages/login.html'));
     exit();
   }
 }

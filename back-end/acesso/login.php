@@ -2,18 +2,7 @@
 
 require_once __DIR__ . "/../database/conexao-mysql.php";
 require_once "autenticacao.php";
-
-class Response {
-  public $success;
-  public $redirect;
-  public $message;
-
-  public function __construct($success, $redirect, $message = '') {
-    $this->success = $success;
-    $this->redirect = $redirect;
-    $this->message = $message;
-  }
-}
+require_once __DIR__ . "/../classes/redirect-response.php";
 
 session_start();
 
@@ -33,11 +22,20 @@ if ($senhaHash = checkPassword($pdo, $email, $senha)) {
   $cookieParams['httponly'] = true;
   session_set_cookie_params($cookieParams);
 
+  $sql = <<<SQL
+    SELECT ID
+    FROM ANUNCIANTE
+    WHERE EMAIL = ?
+    SQL;
+
+  $stmt = $pdo->prepare($sql);
+  $stmt->execute([$email]);
   // Armazena dados úteis para confirmação 
   // de login em outros scripts PHP
-  // TODO RODRIGO: ver o que eu preciso armazenar aqui
   $_SESSION['emailUsuario'] = $email;
-  // TODO: arrumar a rota de redirect
+  $_SESSION['idUsuario'] = $stmt->fetchColumn();
+  $_SESSION['loginString'] = hash('sha512', $senhaHash . $_SERVER['HTTP_USER_AGENT']);
+  
   header('Content-Type: application/json; charset=utf-8');
   echo json_encode(new Response(true, '/front-end/pages/meus-anuncios.html'));
 }
