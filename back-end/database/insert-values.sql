@@ -1,3 +1,5 @@
+BEGIN;
+
 INSERT INTO ANUNCIO (MARCA, MODELO, ANO, QUILOMETRAGEM, DESCRICAO, VALOR, DATA_HORA, ESTADO, CIDADE, ID_ANUNCIANTE) VALUES
 ('Fiat', 'Mobi', 2015, 55000, 'Carro bem conservado, único dono', 30000, '2024-11-12 10:00:00', 'SP', 'São Paulo', 1),
 ('Volkswagen', 'Gol', 2018, 45000, 'Carro em excelente estado, manutenção em dia', 40000, '2024-10-11 15:30:00', 'RJ', 'Rio de Janeiro', 1),
@@ -21,3 +23,6 @@ INSERT INTO FOTO (NOME_FOTO, ID_ANUNCIO, FLAG_CAPA) VALUES
 ('car-8.jpeg', 8, TRUE),
 ('car-9.jpeg', 9, TRUE),
 ('car-10.jpeg', 10, TRUE);
+
+--COMMIT;
+--ROLLBACK;
